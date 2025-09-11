@@ -15,7 +15,7 @@ const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(5, 3, 5);
 scene.add(directionalLight);
 
-const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
+const earthGeometry = new THREE.SphereGeometry(4, 64, 64);
 const textureLoader = new THREE.TextureLoader();
 
 const textureDay = textureLoader.load('./textures/day.jpg');
@@ -56,4 +56,5 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
 

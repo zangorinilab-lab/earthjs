@@ -12,10 +12,10 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const ambientLight = new THREE.AmbientLight(0x404040);
 scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(5, 3, 5);
+directionalLight.position.set(10, 1, 4);
 scene.add(directionalLight);
 
-const earthGeometry = new THREE.SphereGeometry(2, 64, 64);
+const earthGeometry = new THREE.SphereGeometry(1.5, 64, 64);
 const textureLoader = new THREE.TextureLoader();
 
 const textureDay = textureLoader.load('./textures/day.jpg');
@@ -42,13 +42,17 @@ camera.position.z = 3;
 function animate() {
   requestAnimationFrame(animate);
 
-  earthDay.rotation.y += 0.005;
-  earthNight.rotation.y += 0.005;
-  clouds.rotation.y += 0.006;
+  earthDay.rotation.y += 0.001;
+  earthNight.rotation.y += 0.001;
+  clouds.rotation.y += 0.002;
 
   controls.update();
   renderer.render(scene, camera);
 }
+controls.enableRotate = false;  // Disabilita rotazione con mouse
+controls.enablePan = false;     // Disabilita pan con mouse
+controls.enableZoom = false;    // Disabilita zoom con rotella
+
 animate();
 
 window.addEventListener('resize', () => {
@@ -56,5 +60,3 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
-
-

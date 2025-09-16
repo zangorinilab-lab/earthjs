@@ -48,7 +48,7 @@ function updateScale() {
     earthNight.scale.set(1.01, 1.01, 1.01);
     clouds.scale.set(1.02, 1.02, 1.02);
   } else {
-    earthDay.scale.set(2, 2, 2);
+    earthDay.scale.set(1.5, 1.5, 1.5);
     earthNight.scale.set(2 * 1.01, 2 * 1.01, 2 * 1.01);
     clouds.scale.set(2 * 1.02, 2 * 1.02, 2 * 1.02);
   }
@@ -79,3 +79,4 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   updateScale();
 });
+
